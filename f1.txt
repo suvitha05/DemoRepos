@@ -1,0 +1,16 @@
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 14F1-952B
+
+ Directory of C:\DemoRepos
+
+26-11-2024  16:06    <DIR>          .
+26-11-2024  14:18               314 .gitignore
+26-11-2024  15:09               526 a.txt
+26-11-2024  16:04               577 developer.txt
+26-11-2024  14:45               434 dirListing.txt
+26-11-2024  16:06                 0 f1.txt
+26-11-2024  14:18            35,823 LICENSE
+26-11-2024  14:18                53 README.md
+26-11-2024  14:49               483 sample.java
+               8 File(s)         38,210 bytes
+               1 Dir(s)  853,019,312,128 bytes free
