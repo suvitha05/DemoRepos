@@ -15,6 +15,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
+                sh "ls -la /home/jenkins" 
                 sh "mvn -version"
                 sh "mvn clean install"
             }
