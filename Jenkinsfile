@@ -41,7 +41,7 @@ pipeline {
              ])
 	     println(env.GIT_BRANCH) ; 
              sh "git checkout Developer";
-             sh "git merge " + env.GIT_BRANCH.replace('origin\/',''); 
+             sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
              println(userInput); //Use this value to branch to different logic if needed
         }
     }
