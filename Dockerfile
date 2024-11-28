@@ -1,3 +1,4 @@
 FROM maven:3.6.0-jdk-13
 RUN useradd -m -u 1000 -s /bin/bash jenkins
-RUN yum install -y openssh-clients && chown -R 755 /home/jenkins/.m2  
+RUN yum install -y openssh-clients
+USER root 
