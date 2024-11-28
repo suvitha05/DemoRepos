@@ -41,7 +41,7 @@ pipeline {
 	     println(env.GIT_BRANCH) ; 
 	     // write logic to merge to X based on userInput	
              // sh "git checkout Developer";
-             echo sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
+             // echo sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
              println(userInput); //Use this value to branch to different logic if needed
         }
     }
