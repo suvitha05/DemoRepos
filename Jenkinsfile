@@ -15,12 +15,9 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
-                sh "echo $JAVA_HOME"
                 sh "mvn -version"
                 sh "echo id = `id`"
-                sh "ls -la /home/jenkins/.m2"
 		sh "sudo chown -R jenkins /home/jenkins/.m2"
-		sh "ls -la /home/jenkins/.m2"
                 sh "mvn clean compile"
             }
         }
