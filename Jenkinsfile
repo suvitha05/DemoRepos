@@ -7,7 +7,7 @@ pipeline {
     agent {
         dockerfile {
             label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
+            args "-v /tmp/maven2:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
         }
     }
 
@@ -15,7 +15,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
-                sh "ls -la /home/jenkins" 
+                sh "id && who && ls -la /home/jenkins" 
                 sh "mvn -version"
                 sh "mvn clean install"
             }
