@@ -32,13 +32,16 @@ pipeline {
             }
         }
 	stage("Ask Question on Merge") {
+	    agent { label 'docker' }
             steps {
         	script {
              def userInput = input(id: 'userInput', message: 'Merge to?',
              parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
-                description:'describing choices', name:'Which Branch to Merge', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
+                description:'List of our branches', name:'Which Branch to Merge', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
              ])
-	     println(env.GIT_BRANCH) ;            
+	     println(env.GIT_BRANCH) ; 
+             sh "git checkout Developer";
+             sh "git merge " + env.GIT_BRANCH.replace('origin\/',''); 
              println(userInput); //Use this value to branch to different logic if needed
         }
     }
