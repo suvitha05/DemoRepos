@@ -17,9 +17,20 @@ pipeline {
                 sh "ssh -V"
                 sh "echo $JAVA_HOME"
                 sh "mvn -version"
-                sh "mvn clean install -e -X"
+                sh "mvn clean compile"
             }
         }
+	stage("Test") {
+            steps {
+                sh "mvn test"
+            }
+        }
+	stage("Deploy") {
+            steps {
+                sh "mvn install"
+            }
+        }
+
     }
 
     post {

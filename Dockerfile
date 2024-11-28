@@ -1,5 +1,2 @@
-FROM maven:3.6-jdk-8
-RUN useradd -m -u 1000 -s /bin/bash jenkins
-RUN apt-get update && apt-get install -y openssh-client sudo && apt-get clean
-RUN echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-RUN echo "export JAVA_HOME=/usr/local/openjdk-8" >> /home/jenkins/.bashrc 
+FROM ssriram12/maven-3.9.9:jdk13
+
