@@ -7,7 +7,7 @@ pipeline {
     agent {
         dockerfile {
             label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
+            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2 -e JAVA_HOME=/usr/local/openjdk-8"
         }
     }
 
@@ -15,6 +15,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
+                sh "echo ***** $JAVA_HOME"
                 sh "mvn -version"
                 sh "sudo mvn clean install -e -X"
             }
