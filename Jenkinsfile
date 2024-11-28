@@ -38,9 +38,8 @@ pipeline {
              parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
                 description:'describing choices', name:'Which Branch to Merge', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
              ])
-	     pritln(env.GIT_BRANCH); 
-
-            println(userInput); //Use this value to branch to different logic if needed
+	     println(env.GIT_BRANCH) ;            
+             println(userInput); //Use this value to branch to different logic if needed
         }
     }
 
