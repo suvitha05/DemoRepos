@@ -7,7 +7,7 @@ pipeline {
     agent {
         dockerfile {
             label "docker"
-            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2 -e JAVA_HOME=/usr/local/openjdk-8"
+            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
         }
     }
 
