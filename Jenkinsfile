@@ -40,8 +40,9 @@ pipeline {
                 description:'List of our branches', name:'Which Branch to Merge', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
              ])
 	     println(env.GIT_BRANCH) ; 
-             sh "git checkout Developer";
-             sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
+	     // write logic to merge to X based on userInput	
+             // sh "git checkout Developer";
+             echo sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
              println(userInput); //Use this value to branch to different logic if needed
         }
     }
