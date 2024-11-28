@@ -15,9 +15,8 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
-                sh "ls -la /home/jenkins && mkdir -p /tmp/jenkins" 
-                sh "ls -la /tmp/jenkins" ::
-
+                sh "ls -la /home/jenkins" 
+ 		sh "ls -la /tmp/jenkins" 
                 sh "mvn -version"
                 sh "mvn clean install"
             }
