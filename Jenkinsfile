@@ -32,7 +32,6 @@ pipeline {
             }
         }
 	stage("Ask Question on Merge") {
-	    agent { label 'docker' }
             steps {
         	script {
              def userInput = input(id: 'userInput', message: 'Merge to?',
