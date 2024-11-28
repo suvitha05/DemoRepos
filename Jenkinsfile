@@ -15,9 +15,9 @@ pipeline {
         stage("Build") {
             steps {
                 sh "ssh -V"
-                sh "echo ***** $JAVA_HOME"
+                sh "echo $JAVA_HOME"
                 sh "mvn -version"
-                sh "sudo mvn clean install -e -X"
+                sh "mvn clean install -e -X"
             }
         }
     }
