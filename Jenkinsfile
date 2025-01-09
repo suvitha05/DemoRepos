@@ -26,12 +26,36 @@ pipeline {
                 sh "mvn test"
             }
         }
+       stage("build & SonarQube analysis") {
+          node {
+              withSonarQubeEnv('My SonarQube Server','jenkinssonaruser') {
+                 sh 'mvn clean package sonar:sonar'
+              }
+          }
+      }        
 	stage("Deploy") {
             steps {
                 sh "mvn install"
             }
         }
+	stage("Ask Question on Merge") {
+            steps {
+        	script {
+             def userInput = input(id: 'userInput', message: 'Merge to?',
+             parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
+                description:'List of our branches', name:'Which Branch to Merge', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
+             ])
+	     println(env.GIT_BRANCH) ; 
+	     // write logic to merge to X based on userInput	
+             // sh "git checkout Developer";
+             // echo sh "git merge " + env.GIT_BRANCH.replace("origin/",""); 
+             println(userInput); //Use this value to branch to different logic if needed
+        }
+    }
 
+        }
+
+    }
 
     post {
         always {
