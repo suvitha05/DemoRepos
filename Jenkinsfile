@@ -21,6 +21,15 @@ pipeline {
                 sh "mvn clean compile"
             }
         }
+
+       stage("build & SonarQube analysis") {
+            steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+
 	stage("Test") {
             steps {
                 sh "mvn test"
@@ -32,14 +41,7 @@ pipeline {
             }
         }
 
-        stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('My SonarQube Server') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
+        
 
 
 	//stage("Ask Question on Merge") {
