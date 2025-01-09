@@ -25,15 +25,7 @@ pipeline {
             steps {
                 sh "mvn test"
             }
-        }
-
-       stage("build & SonarQube analysis") {
-          node {
-              withSonarQubeEnv('My SonarQube Server','jenkinssonaruser') {
-                 sh 'mvn clean package sonar:sonar'
-              }
-          }
-      }        
+        }    
 	stage("Deploy") {
             steps {
                 sh "mvn install"
