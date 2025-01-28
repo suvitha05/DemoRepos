@@ -22,13 +22,13 @@ pipeline {
             }
         }
 
-       #stage("build & SonarQube analysis") {
-         #   steps {
-          #    withSonarQubeEnv('My SonarQube Server') {
-           #     sh 'mvn -e package sonar:sonar'
-            #  }
-            #}
-          #}
+       //#stage("build & SonarQube analysis") {
+         //#   steps {
+          //#    withSonarQubeEnv('My SonarQube Server') {
+           //#     sh 'mvn -e package sonar:sonar'
+            //#  }
+            //#}
+          //#}
 
 	stage("Test") {
             steps {
