@@ -27,7 +27,7 @@ pipeline {
               //withSonarQubeEnv('My SonarQube Server') {
                //sh 'mvn -e package sonar:sonar'
              //}
-               sh "Sonar Test..." 
+               sh "echo Sonar Test..." 
             }
           }
 
