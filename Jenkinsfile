@@ -17,7 +17,7 @@ pipeline {
                 sh "ssh -V"
                 sh "mvn -version"
                 sh "echo id = `id`"
-		sh "sudo chown -R jenkins /home/jenkins/.m2"
+		//sh "sudo chown -R jenkins /home/jenkins/.m2"
                 sh "mvn clean compile"
             }
         }
