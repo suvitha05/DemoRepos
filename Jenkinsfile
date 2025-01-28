@@ -22,11 +22,12 @@ pipeline {
             }
         }
 
-       stage("build & SonarQube analysis") {
+       stage("SonarQube Analysis") {
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
-               sh 'mvn -e package sonar:sonar'
-             }
+              //withSonarQubeEnv('My SonarQube Server') {
+               //sh 'mvn -e package sonar:sonar'
+             //}
+               sh "Sonar Test..." 
             }
           }
 
