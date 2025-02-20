@@ -35,7 +35,7 @@ pipeline {
 			sh "java --version" 
 			withSonarQubeEnv("My SonarQube Server") {
 			//sh "${scannerHome}/bin/sonar-scanner"
-			sh "echo to be implemented
+			sh "echo to be implemented"
 			} 
 		}
 	} 
