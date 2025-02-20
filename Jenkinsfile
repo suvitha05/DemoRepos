@@ -21,7 +21,7 @@ pipeline {
 		sh "sudo mkdir -p /home/jenkins/.m2/repository" 
 		sh "sudo chown -R jenkins:jenkins /home/jenkins"
 		sh "echo id = `id`"
-                sh "mvn clean compile"
+                sh "mvn -e -X clean compile"
             }
         }
 	stage("Test") {
