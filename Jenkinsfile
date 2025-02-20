@@ -15,12 +15,9 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                // sh "ssh -V"
                 sh "mvn -version"
                 sh "echo id = `id`"
-		// sh "sudo mkdir -p /home/jenkins/.m2/repository" 
 		sh "sudo chown -R jenkins:jenkins /home/jenkins"
-		//sh "echo id = `id`"
 		sh "echo TOKEN : $TOKEN" 
                 sh "mvn clean compile"
             }
@@ -30,6 +27,17 @@ pipeline {
                 sh "mvn test"
             }
         }
+	stage("SonarAnalysis")
+	{
+		def scannerHome = tool 'SonarQubeScanner';
+		agent { label "docker"  } 
+		sh "java --version" 
+		withSonarQubeEnv("My SonarQube Server") {
+			//sh "${scannerHome}/bin/sonar-scanner"
+			echo "to be implemented"
+		} 
+	} 
+
 	stage("Deploy") {
             steps {
                 sh "mvn install"
