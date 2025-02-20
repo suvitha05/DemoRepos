@@ -1,16 +1,15 @@
 #!groovy
-
 pipeline {
-
     environment {
         JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
 	TOKEN="sqa_cfc6ac97954a594f273e7b7165bbfc99610bb9b1"
     }
     agent {
+	//label "docker"
         dockerfile {
           args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2 -e TOKEN=$TOKEN"
         }
-	label "docker"
+	
     }
 
     stages {
