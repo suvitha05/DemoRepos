@@ -36,7 +36,7 @@ pipeline {
 			//withSonarQubeEnv("My SonarQube Server") {
 			//sh "${scannerHome}/bin/sonar-scanner"
 			//sh "echo to be implemented"
-			} 
+			//} 
 		}
 	} 
 
