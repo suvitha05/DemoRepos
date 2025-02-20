@@ -30,7 +30,7 @@ pipeline {
 	stage("SonarAnalysis")
 	{
 		//def scannerHome = tool 'SonarQubeScanner';
-		agent { label "docker" } 
+		// agent { label "docker" } 
 		steps {
 			sh "java --version" 
 			//withSonarQubeEnv("My SonarQube Server") {
