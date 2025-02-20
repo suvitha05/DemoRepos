@@ -18,6 +18,7 @@ pipeline {
                 // sh "ssh -V"
                 sh "mvn -version"
                 sh "echo id = `id`"
+		sh "mkdir -p /home/Jenkins/.m2/repository" 
                 sh "mvn clean compile"
             }
         }
