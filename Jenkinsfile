@@ -8,7 +8,7 @@ pipeline {
         docker {
             image "ssriram12/maven-3.9.9:jdk13"
             label "docker"
-            args "-v /tmp/maven:/home/jenkins -e MAVEN_CONFIG=/home/jenkins"
+            args "--network Jenkins -v /tmp/maven:/home/jenkins -e MAVEN_CONFIG=/home/jenkins"
         }
     }
 
@@ -18,10 +18,11 @@ pipeline {
                 // sh "ssh -V"
                 sh "mvn -version"
                 sh "echo id = `id`"
-		sh "sudo mkdir -p /home/jenkins/.m2/repository" 
+		// sh "sudo mkdir -p /home/jenkins/.m2/repository" 
 		sh "sudo chown -R jenkins:jenkins /home/jenkins"
-		sh "echo id = `id`"
-                sh "mvn -e -X clean compile"
+		//sh "echo id = `id`"
+		sh "echo TOKEN : $TOKEN" 
+                sh "mvn clean compile"
             }
         }
 	stage("Test") {
