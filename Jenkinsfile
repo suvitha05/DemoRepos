@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage("Build") {
             steps {
-                sh "ssh -V"
+                // sh "ssh -V"
                 sh "mvn -version"
                 sh "echo id = `id`"
                 sh "mvn clean compile"
