@@ -2,7 +2,8 @@
 
 pipeline {
     environment {
-        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+        //JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+        DEMO="Demo"
     }
    agent any 
        // docker {
@@ -18,8 +19,8 @@ pipeline {
             steps {
                 sh "mvn -version"
                 sh "echo id = `id`"
-		sh "sudo chown -R jenkins:jenkins /home/jenkins"
-		sh "echo TOKEN : $TOKEN" 
+		  //sh "sudo chown -R jenkins:jenkins /home/jenkins"
+		// sh "echo TOKEN : $TOKEN" 
                 sh "mvn clean compile"
             }
         }
