@@ -16,8 +16,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
-    <sonar.token>${env.TOKEN}</sonar.token>
-    <sonar.host.url>sonarqube</sonar.host.url>
+    <sonar.token>${env.SONAR_TOKEN}</sonar.token>
+    <sonar.host.url>${env.SONAR_HOST}</sonar.host.url>
   </properties>
 
   <dependencies>
