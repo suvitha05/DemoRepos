@@ -18,6 +18,7 @@
     <maven.compiler.target>13</maven.compiler.target>
     <sonar.token>${env.SONAR_TOKEN}</sonar.token>
     <sonar.host.url>${env.SONAR_HOST}</sonar.host.url>
+    <sonar.projectKey>maven-pipeline-demo</sonar.projectKey>
   </properties>
 
   <dependencies>
