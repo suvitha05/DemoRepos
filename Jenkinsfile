@@ -5,12 +5,13 @@ pipeline {
         //JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
         DEMO="Demo"
     }
-   agent any 
-       // docker {
-        //    image "ssriram12/maven-3.9.9:jdk13"
-         //   label "docker"
-          //  args "-v /tmp/maven:/home/jenkins -e MAVEN_CONFIG=/home/jenkins"
-        //}
+   agent 
+	//any 
+       docker {
+          image "ssriram12/maven-3.9.9:jdk13"
+          label "docker"
+           args "-v /tmp/maven:/home/jenkins -e MAVEN_CONFIG=/home/jenkins"
+        }
 // 	any 
     
 
@@ -29,18 +30,18 @@ pipeline {
                 sh "mvn test"
             }
         }
-	stage("SonarAnalysis")
-	{
+	//stage("SonarAnalysis")
+	//{
 		//def scannerHome = tool 'SonarQubeScanner';
 		// agent { label "docker" } 
-		steps {
+		//steps {
 			sh "echo to be implemented" 
 			//withSonarQubeEnv("SonarServer") {
 			//sh "/home/sidkalpop/scanner/bin/sonar-scanner"
 			//sh "echo to be implemented"
 			//} 
-		}
-	} 
+		//}
+	//} 
 
 	stage("Deploy") {
             steps {
